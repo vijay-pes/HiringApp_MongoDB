@@ -3,9 +3,7 @@ package com.teulsko.HiringApp.Controller;
 import com.teulsko.HiringApp.Model.Post;
 import com.teulsko.HiringApp.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class PostController {
     @GetMapping("/posts")
     public List<Post> getAllJobPosts(){
         return repo.findAll();
+    }
+
+    @PostMapping("/addPost")
+    public Post addPost(@RequestBody Post post){
+        return repo.save(post);
     }
 }
