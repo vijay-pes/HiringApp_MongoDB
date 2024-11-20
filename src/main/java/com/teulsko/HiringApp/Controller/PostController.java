@@ -1,7 +1,9 @@
 package com.teulsko.HiringApp.Controller;
 
 import com.teulsko.HiringApp.Model.Post;
-import com.teulsko.HiringApp.PostRepo;
+import com.teulsko.HiringApp.Repository.PostRepo;
+import com.teulsko.HiringApp.Repository.SearchRepo;
+import com.teulsko.HiringApp.Repository.SearchRepoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,13 @@ public class PostController {
 
     @Autowired
     PostRepo repo;
+
+    @Autowired
+    SearchRepo searchRepo;
+
+    @Autowired
+    SearchRepoImpl searchRepoImpl;
+
 
     @RequestMapping("/health")
     public void health(){
@@ -26,5 +35,10 @@ public class PostController {
     @PostMapping("/addPost")
     public Post addPost(@RequestBody Post post){
         return repo.save(post);
+    }
+
+    @GetMapping("/search/{text}")
+    public List<Post> search(@PathVariable String text){
+        return searchRepo.searchByText(text);
     }
 }

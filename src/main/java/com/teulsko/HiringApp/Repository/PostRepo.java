@@ -1,4 +1,4 @@
-package com.teulsko.HiringApp;
+package com.teulsko.HiringApp.Repository;
 
 import com.teulsko.HiringApp.Model.Post;
 import org.springframework.data.mongodb.repository.MongoRepository;
