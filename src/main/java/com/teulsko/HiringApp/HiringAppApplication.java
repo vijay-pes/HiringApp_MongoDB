@@ -11,5 +11,5 @@ public class HiringAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HiringAppApplication.class, args);
 	}
-
 }
+
