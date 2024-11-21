@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 public class PostController {
 
@@ -27,17 +27,17 @@ public class PostController {
         System.out.println("Ok");
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/allPosts")
     public List<Post> getAllJobPosts(){
         return repo.findAll();
     }
 
-    @PostMapping("/addPost")
+    @PostMapping("/post")
     public Post addPost(@RequestBody Post post){
         return repo.save(post);
     }
 
-    @GetMapping("/search/{text}")
+    @GetMapping("/posts/{text}")
     public List<Post> search(@PathVariable String text){
         return searchRepo.searchByText(text);
     }
