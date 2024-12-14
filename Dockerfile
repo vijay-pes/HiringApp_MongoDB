@@ -19,3 +19,9 @@ ENTRYPOINT ["java", "-jar", "Hiring-app.jar"]
 # mvn clean package
 # docker build -t springboot-mongodb-app:1.0 .
 # docker run -p 8080:8080 springboot-mongodb-app:1.0
+
+
+# these does not create a new container each time you run :
+#docker run -p 8080:8080 --name springboot-mongodb-app springboot-mongodb-app:1.0
+#docker start springboot-mongodb-app
+#docker stop springboot-mongodb-app
